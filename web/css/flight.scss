@@ -1,0 +1,280 @@
+$primary-color: #0275d8;
+
+$blue-color: #2797f1;
+
+$green-color: #4CAF50;
+
+$red-color: #E91E63;
+
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+  box-sizing: border-box;
+  line-height: 1;
+}
+
+body, html {
+  font-size: 12px;
+  color: #555;
+}
+
+i.iconfont {
+  font-size: 1rem;
+}
+
+.page-container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: #f8f8f8;
+  overflow: hidden;
+  margin-top: 50px;
+}
+
+.flight-page {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+}
+
+/*地图*/
+
+.map-container {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  z-index: 666;
+  height: 100%
+}
+
+.map {
+  width: 100%;
+  height: 100%;
+}
+
+.map-container div.smMap {
+  border: 0;
+}
+
+.layer-switch {
+  position: absolute;
+  right: 5rem;
+  bottom: 1rem;
+  z-index: 999;
+  background: #fff;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, .1), -3px -3px 6px rgba(0, 0, 0, .1);
+  border-radius: 2px;
+}
+
+.layer-btn {
+  display: inline-block;
+  width: 50px;
+  text-align: center;
+  padding: 6px;
+  background: #fff;
+  border-radius: 2px;
+  cursor: pointer;
+  &.active {
+    background: #2797f1;
+    color: #fff;
+  }
+}
+
+.lines {
+  z-index: 999;
+  //pointer-events: none;
+  height: 100%;
+}
+
+.path {
+  stroke-dasharray: 10 3;
+  /*stroke-dashoffset: 0;*/
+  animation: dash 12.5s linear infinite alternate;
+}
+
+@keyframes dash {
+  from {
+    stroke-dashoffset: 200;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.smMapViewport > div > div {
+  width: 100%;
+  height: 100%;
+}
+
+.detail-win {
+  position: relative;
+  right: 0.5rem;
+  margin-right: .25%;
+  z-index: 999;
+
+  display: none;
+  float: right;
+  width: 400px;
+  top: .5rem;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1), -3px -3px 10px rgba(0, 0, 0, 0.1);
+  &.active {
+    display: block;
+  }
+}
+
+.info-win {
+  padding: .8rem 0 .8rem 1rem;
+  display: inline-block;
+  width: 50%;
+  vertical-align: top;
+  &:nth-child(even) {
+    //background: #f4f4f4;
+  }
+  label {
+    padding-right: .5rem;
+  }
+}
+
+label {
+  font-weight: bold;
+}
+
+/**
+  气泡提示
+*/
+
+.window-pop {
+  position: fixed;
+  left: -1000px;
+  z-index: 99999;
+
+  margin-top: -1rem;
+  min-width: 5rem;
+
+  text-align: center;
+
+  transform: translate(-50%, -100%);
+
+  &.active {
+    display: block;
+  }
+
+  * {
+    line-height: 1.25;
+  }
+}
+
+.caret {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-top: -8px;
+  vertical-align: middle;
+  border-top: 8px dashed;
+  border-right: 8px solid transparent;
+  border-left: 8px solid transparent;
+  color: #fff;
+
+}
+
+.pop-content {
+  background: #fff;
+  border-radius: 4px;
+  padding: .5rem;
+  text-align: left;
+}
+
+.flight-list-container {
+  position: absolute;
+  margin-right: .25%;
+  z-index: 999;
+  display: none;
+  float: right;
+  width: 100%;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1), -3px -3px 10px rgba(0, 0, 0, 0.1);
+  bottom: 3px;
+  &.active {
+    display: block;
+  }
+  .rc-card {
+    background: #fff;
+    border: 0;
+    border-top: 4px solid $blue-color;
+    border-radius: 2px;
+    &:hover {
+      box-shadow: none;
+    }
+    .rc-card-header {
+      background: #fff;
+      color: #000;
+      border: 0;
+      border-radius: 2px 2px 0 0;
+      box-shadow: 0px 5px 4px -4px rgba(0, 0, 0, .2);
+    }
+    .rc-card-title {
+      font-size: 1rem;
+    }
+  }
+}
+
+.flight-search {
+  li {
+    display: inline-block;
+    .bfc-left {
+      display: inline-block;
+      padding: 12px;
+    }
+    .bfc-right {
+      display: inline-block;
+      padding: 12px;
+      width: 180px;
+      input {
+        width: 100%;
+        outline: none;
+        box-sizing: border-box;
+        padding: 4px 6px;
+        font-size: 1em;
+        line-height: 1.25;
+        color: #464a4c;
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        vertical-align: middle;
+        border-radius: 2px;
+        background: #f6f6f6;
+      }
+    }
+  }
+}
+
+.input-common {
+  width: 100%;
+  outline: none;
+  box-sizing: border-box;
+  padding: 4px 6px;
+  font-size: 1em;
+  line-height: 1.25;
+  color: #464a4c;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  vertical-align: middle;
+  border-radius: 2px;
+  background: #f6f6f6;
+}
+
+.sousuo {
+  color: #fff;
+  padding: .4em 1em;
+  background: #3794ff;
+  display: inline-block;
+  vertical-align: middle;
+  border: none;
+  outline: none;
+  border-radius: 2px;
+  font-size: 1em;
+  path {
+    fill: #fff;
+  }
+}

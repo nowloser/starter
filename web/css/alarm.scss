@@ -1,0 +1,43 @@
+.alarm-page *{
+  font-size: 14px;
+}
+
+.alarm-box {
+  background: #fff;
+  color: #000;
+  display: none;
+
+  p {
+    margin: 0;
+    border-bottom: 1px solid #b0b0b0;
+    font-size: 16px;
+    color: #99f;
+  }
+  .message {
+    padding-top: .5rem;
+  }
+  &.active{
+    display: block;
+  }
+
+}
+
+
+
+.opt-container{
+  padding: 12px 6px;
+  //border: 1px solid #b0b0b0;
+  border-bottom: 0;
+  .rc-btn{
+    margin-right: 12px;
+  }
+}
+.detail-tab{
+  overflow: hidden;
+}
+.alarm-page .detail-info{
+  color: #333;
+  padding: 8px 0;
+  width: 50%;
+  float: left;
+}

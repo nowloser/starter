@@ -1,0 +1,201 @@
+html {
+  font-size: 14px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-size: 1rem;
+}
+
+.alarm-page .detail-tab {
+  .tab-head {
+    padding: .3em 2em;
+  }
+  .tab-container {
+    margin-top: .5em;
+  }
+}
+
+.row {
+}
+
+.col4 {
+  float: left;
+  width: 33.33%;
+  padding-bottom: 15px;
+}
+
+.col6 {
+  float: left;
+  width: 50%;
+  padding-bottom: 15px;
+}
+
+.col12 {
+  float: left;
+  width: 100%;
+  padding-bottom: 15px;
+}
+
+.alarm-page .bfc-left {
+  float: left;
+  line-height: 26px;
+}
+
+.alarm-page .bfc-right {
+  overflow: hidden;
+  padding-right: 1em;
+  padding-left: .5em;
+  //line-height: 26px;
+}
+
+
+.alarm-page .visibleBox {
+  overflow: visible;
+  width: 100%;
+  padding-left: 4.5em;
+  .rc-dropdown {
+    width: 100%;
+    .rc-btn {
+      padding: 4px 1em;
+      background: #f6f6f6;
+      width: 100%;
+      border-radius: 2px;
+    }
+  }
+}
+
+.res-menu {
+  padding: .5em 1em;
+  cursor: pointer;
+}
+
+.alarm-page .rc-modal .rc-content {
+  width: 54em;
+}
+
+.react-datepicker__input-container {
+  width: 100%;
+}
+
+.select-container {
+  max-height: 200px;
+  min-height: 100px;
+  overflow: auto;
+}
+
+.alarm-page .visibleBox-large {
+  overflow: visible;
+  width: 100%;
+  padding-left: 6.5em;
+  .rc-dropdown {
+    width: 100%;
+    .rc-btn {
+      padding: 4px 1em;
+      background: #f6f6f6;
+      width: 100%;
+      border-radius: 2px;
+    }
+  }
+}
+
+.search-drop {
+  width: calc(100% - 5em);
+  float: left;
+  .dropdown-btn {
+    padding: 4px 1em;
+    background: #f6f6f6;
+    width: 100%;
+    border-radius: 2px;
+  }
+}
+
+.detail-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 4px;
+  td {
+    padding: .5em;
+    width: 16.666%;
+    border-radius: 2px;
+  }
+  td:nth-child(even) {
+    background: #eee;
+  }
+
+  td:nth-child(odd) {
+    background: rgba(2, 117, 216, 0.1);
+  }
+}
+
+.table-row {
+  margin-right: -4px;
+  margin-left: -4px;
+  margin-top: -4px;
+}
+
+.step-box {
+  display: inline-block;
+  color: #03A9F4;
+  padding: .5em 1em;
+  font-size: 1.2em;
+  border: 1px solid #03a9f4;
+  border-radius: 2px;
+  vertical-align: middle;
+}
+
+.step-arrow {
+  background: url("../images/step.png") 0 0 /contain no-repeat;
+  display: inline-block;
+  width: 54px;
+  height: 1em;
+  //background-size: contain;
+  //background-repeat: no-repeat;
+  vertical-align: middle;
+}
+
+.flow-table {
+  margin-top: .5em;
+}
+
+.step-container {
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  .step-name {
+    line-height: 1;
+  }
+}
+
+.step-row {
+  display: inline-block;
+  margin: 8px 0;
+}
+
+div.rc-page {
+  border-width: 0;
+  &:last-child {
+    border-width: 0;
+  }
+  &.active {
+    border-radius: 2px;
+  }
+}
+
+.trans-box {
+  .visibleBox {
+    //padding-left: 54px;
+  }
+}
+
+body{
+  .rc-btn-primary{
+    background: #3794ff;
+    border-color: #3794ff;
+  }
+  .rc-page.active{
+    background: #3794ff;
+  }
+}

@@ -1,0 +1,156 @@
+<!DOCTYPE>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>火车监控模拟</title>
+    <style type="text/css">
+        body {
+            margin: 0;
+            overflow: hidden;
+            background: #fff;
+        }
+
+        #map {
+            position: relative;
+            height: 510px;
+            border: 1px solid #3473b7;
+        }
+
+        #toolbar {
+            position: relative;
+            padding-top: 5px;
+            padding-bottom: 10px;
+        }
+    </style>
+    <link href='./css/bootstrap.min.css' rel='stylesheet'/>
+    <link href='./css/bootstrap-responsive.min.css' rel='stylesheet'/>
+    <script src='../libs/SuperMap.Include.js'></script>
+    <script type="text" id="cartocssStr">
+    </script>
+    <script type="text/javascript">
+        var map, layer, animatorVector, lineVector1, lineVector2, host = document.location.toString().match(/file:\/\//) ? "http://localhost:8090" : 'http://' + document.location.host;
+        url = 'http://60.190.98.18:8090' + "/iserver/services/map-china400/rest/maps/China";
+        url2 = 'http://60.190.98.18:8090' + "/iserver/services/data-DynamicData/rest/data";
+        function init() {
+            if (!document.createElement('canvas').getContext) {
+                alert('您的浏览器不支持 canvas，请升级');
+                return;
+            }
+//初始化地图
+            map = new SuperMap.Map("map", {
+                controls: [
+                    new SuperMap.Control.ScaleLine(),
+                    new SuperMap.Control.Zoom(),
+                    new SuperMap.Control.Navigation({
+                        dragPanOptions: {
+                            enableKinetic: true
+                        }
+                    })],
+                projection: "EPSG:3857"
+            });
+//初始化图层
+            layer = new SuperMap.Layer.TiledVectorLayer("China", url, {cacheEnabled: true}, {useLocalStorage: true});
+            layer.events.on({"layerInitialized": addLayer});
+
+
+        }
+        function addLayer() {
+//初始化动画矢量图层
+            animatorVector = new SuperMap.Layer.AnimatorVector("Train", {rendererType: "TadpolePoint"}, {
+//设置速度为每帧播放0.02小时的数据
+                speed: 0.02,
+//开始时间为0晨
+                startTime: 0,
+//结束时间设置为最后运行结束的火车结束时间
+                endTime: 39
+            });
+            map.addLayers([layer, animatorVector]);
+
+            map.setCenter(new SuperMap.LonLat(12009634.286396, 4258716.5813769), 4);
+//增加数据
+            addTrain();
+
+        }
+        //添加火车数据
+        function addTrain() {
+            var getFeatureParam, getFeatureBySQLService, getFeatureBySQLParams;
+
+            getFeatureParam = new SuperMap.REST.FilterParameter({
+                name: "Train@DynamicData",
+                attributeFilter: "SmID < 2240"
+            });
+            getFeatureBySQLParams = new SuperMap.REST.GetFeaturesBySQLParameters({
+                queryParameter: getFeatureParam,
+                datasetNames: ["DynamicData:Train"]
+            });
+//返回个数
+            getFeatureBySQLParams.toIndex = 2240;
+            getFeatureBySQLService = new SuperMap.REST.GetFeaturesBySQLService(url2, {
+                eventListeners: {"processCompleted": processCompleted, "processFailed": processFailed}
+            });
+
+            getFeatureBySQLService.processAsync(getFeatureBySQLParams);
+
+        }
+        function processCompleted(getFeaturesEventArgs) {
+            console.log(getFeaturesEventArgs)
+            var features, result = getFeaturesEventArgs.result;
+            if (result && result.features) {
+                features = result.features;
+            }
+//使用数据
+            var pointFeatures = [];
+            var points = [];
+//            for (var i = 0, len = features.length; i < len; i++) {
+//                var point = features[i].geometry;
+//                var po = features[i].geometry;
+//                points.push(po);
+//                var point= new SuperMap.Geometry.Point(0,0);
+//                var pointFeature = new SuperMap.Feature.Vector(point, {
+//                    FEATUREID: features[i].data.FEATUREID,
+//                    TIME: features[i].data.TIME
+//                }, {
+//                    fillColor: "#ffff00",
+//                    fillOpacity: 0.8,
+//                    strokeOpacity: 0,
+//                    pointRadius: 5
+//                });
+//
+//                pointFeatures.push(pointFeature);
+//            }
+
+            for (var i = 0, len = features.length; i < len; i++) {
+//                var po = features[i].geometry;
+
+                var point = new SuperMap.Geometry.Point(120.7 + 0.001 * i, 28);
+                var pointFeature = new SuperMap.Feature.Vector(point, {
+                    FEATUREID: features[i].data.FEATUREID,
+                    TIME: features[i].data.TIME
+                }, {
+                    fillColor: "#ffff00",
+                    fillOpacity: 0.8,
+                    strokeOpacity: 0,
+                    pointRadius: 5
+                });
+
+                pointFeatures.push(pointFeature);
+            }
+            animatorVector.addFeatures(pointFeatures);
+        }
+        function processFailed(e) {
+            alert(e.error.errorMsg);
+        }
+        //开始播放动画
+        function startAnimator() {
+            animatorVector.animator.start();
+        }
+    </script>
+</head>
+
+<body onload="init()">
+<div id="toolbar">
+    <input type="button" class="btn" value="播放" onclick="startAnimator()"/>
+</div>
+<div id="map"></div>
+</body>
+</html>

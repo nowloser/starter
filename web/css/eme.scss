@@ -1,0 +1,406 @@
+$default-color: #4994e9;
+$primary-color: #0275d8;
+
+html {
+  font-size: 12px;
+}
+
+.eme-detail-tab {
+  width: 292px;
+  position: absolute;
+  bottom: 0;
+  top: 50px;
+  background: #f4f4f4;
+  box-shadow: 0px -3px 5px -5px #fff;
+  z-index: 999;
+
+  .head-container {
+    background: $default-color;
+  }
+  .tab-head {
+    margin: 0 .5rem;
+    padding: .5rem 1rem;
+    color: #fff;
+    &.active {
+      background: #f4f4f4;
+      color: #0275d8;
+    }
+  }
+}
+
+.time-tab {
+  .head-container {
+    background: transparent;
+    padding: 0;
+    border-bottom: 1px solid #ddd;
+    overflow: visible;
+  }
+  .tab-head {
+    color: #333;
+    &.active {
+      background: transparent;
+      border-bottom: 2px solid #0275d8;
+      margin-bottom: -1px;
+    }
+  }
+}
+
+label {
+  font-weight: bold;
+}
+
+.eme-card {
+  background: #fff;
+  min-height: 50px;
+  margin: 0 .5rem .5rem;
+  border-radius: 2px;
+  padding: .5rem 1rem;
+  line-height: 1.7;
+  box-shadow: 0 0 5px rgba(0, 0, 0, .15);
+  color: #666;
+  border-left: 2px solid transparent;
+  &.active {
+    border-left: 2px solid $primary-color;
+  }
+  label {
+    color: #0275d8;
+  }
+  a {
+    color: #107cd9;
+    cursor: pointer;
+  }
+  p {
+    padding: .3rem 0;
+  }
+  p span {
+    margin-left: 6px;
+  }
+}
+
+.eme-page-container {
+  position: absolute;
+  bottom: .2rem;
+  width: 100%;
+  overflow: hidden;
+  text-align: center;
+  .rc-page {
+    border: 0;
+    background: transparent;
+    &.active {
+      border-radius: 50%;
+    }
+  }
+}
+
+.eme-list-container {
+  position: absolute;
+  bottom: 28px;
+  width: 100%;
+  top: 62px;
+  overflow: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.plan-box {
+  padding: .5rem;
+  background: rgba(0, 0, 0, .05);
+  margin: 0 .5rem .5rem;
+  border-radius: 2px;
+  p {
+    font-weight: bold;
+    margin-left: .2rem;
+    margin-bottom: .5rem;
+  }
+  pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    padding: .5rem;
+    background-color: #f7f7f9;
+    border: 1px solid #e1e1e8;
+    border-radius: 2px;
+    margin-bottom: .5rem;
+  }
+  a {
+    margin-left: .2rem;
+    color: $primary-color;
+  }
+}
+
+.eme-page .map-container {
+  position: absolute;
+  top: 50px;
+  width: 100%;
+  bottom: 0;
+  z-index: 666;
+}
+
+.map {
+  width: 100%;
+  height: 100%;
+}
+
+.map-container div.smMap {
+  border: 0;
+}
+
+.tool-container {
+  position: relative;
+  z-index: 999;
+  float: right;
+  margin: 1rem;
+  display: none;
+  &.active {
+    display: block;
+  }
+}
+
+.tool-box {
+  background: #fff;
+  padding: .5rem;
+  border-radius: 2px;
+  margin-bottom: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+  width: 3rem;
+  height: 3rem;
+  text-align: center;
+  svg {
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+    path {
+      fill: $default-color;
+    }
+  }
+}
+
+.plan-container {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  top: 36px;
+  overflow: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.search-box {
+  margin-left: .5rem;
+  margin-bottom: .8rem;
+  .search-input {
+    width: 200px;
+    display: inline-block;
+    margin: 0 6px;
+    input {
+      padding: .25rem .5rem;
+    }
+  }
+  .search-btn {
+    padding: .25rem .5rem;
+    margin: 0 .1rem;
+  }
+  span {
+    padding: 0 .2rem;
+    color: #0275d8;
+    cursor: pointer;
+    margin: 0 .3rem;
+    border-radius: 2px;
+    &.active {
+      background: #0275d8;
+      color: #fff;
+    }
+  }
+}
+
+.search-table {
+  .rc-table th {
+    padding: .4rem 0;
+    border-color: #ddd;
+  }
+  .rc-table td {
+    padding: .4rem 0;
+    border-color: #ddd;
+  }
+}
+
+div.add-card {
+  position: relative;
+  z-index: 9999;
+  background: #fff;
+  width: 400px;
+  float: right;
+  margin-top: 1rem;
+  border: 0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: none;
+  &.active {
+    display: block;
+  }
+}
+
+div.re-card {
+  @extend .add-card;
+  margin-top: 5rem;
+}
+
+div.end-card {
+  @extend .add-card;
+  margin-top: 9rem;
+}
+
+div.trans-card {
+  @extend .add-card;
+  margin-top: 7rem;
+}
+
+.eme-page .bfc-left {
+  float: left;
+  line-height: 26px;
+  min-width: 4rem;
+  text-align: right;
+}
+
+.eme-page .bfc-right {
+  overflow: hidden;
+  padding-right: 12px;
+  padding-left: 6px;
+  line-height: 26px;
+}
+
+.eme-page .in-box .visibleBox {
+  overflow: visible;
+  width: 100%;
+  padding-left: 54px;
+}
+
+.in-box {
+  margin-bottom: .8rem;
+}
+
+button.btn-sub {
+  padding: .25rem .8rem;
+}
+
+.db-in-box {
+  input {
+    width: 80%;
+  }
+  button {
+    width: 18%;
+    padding: 4px 6px;
+    margin-left: 2%;
+  }
+}
+
+.detail-info {
+  position: absolute;
+  top: 10rem;
+  left: 25rem;
+  //width: 10rem;
+  //height: 10rem;
+  background: #fff;
+  z-index: 999;
+  box-shadow: 0 0 5px rgba(0, 0, 0, .1);
+  display: none;
+  &.active {
+    display: block;
+  }
+}
+
+.info-tab {
+  width: 35rem;
+  .head-container {
+    background: $default-color;
+    border-radius: 2px 2px 0 0;
+  }
+  .tab-head {
+    margin: 0 .5rem;
+    padding: .5rem 1rem;
+    color: #fff;
+    &.active {
+      background: #f4f4f4;
+      color: #0275d8;
+    }
+  }
+
+  .tab-tool {
+    padding: .3rem 1rem;
+    path {
+      fill: #fff;
+    }
+  }
+}
+
+.detail-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 4px;
+  td {
+    padding: .5rem;
+    width: 100px;
+    border-radius: 2px;
+    word-break: break-all;
+  }
+  td:nth-child(even) {
+    background: #eee;
+  }
+
+  td:nth-child(odd) {
+    background: rgba(2, 117, 216, 0.1);
+  }
+}
+
+.eme-page .rc-card {
+  .rc-card-header {
+    padding: .5rem 1rem;
+    border: 0;
+    background: $default-color;
+    color: #fff;
+    border-radius: 2px 2px 0 0;
+    path {
+      fill: #fff;
+    }
+  }
+}
+
+.tran-box {
+  padding: 6px 0;
+  max-height: 500px;
+  overflow: auto;
+  background: #eee;
+}
+
+.doc-container {
+  padding: 1rem;
+}
+
+.doc-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.eme-page .rc-dropdown {
+  width: 100%;
+  .rc-btn {
+    padding: 4px 1em;
+    background: #f6f6f6;
+    width: 100%;
+    border-radius: 2px;
+  }
+}
+
+.no-report {
+  padding: 2rem;
+  text-align: center;
+  background: #fff;
+  margin: 0 .5rem;
+}
+
+.down-link{
+  display: inline-block;
+  margin: 12px 6px;
+  color: #4994e9;
+  cursor: pointer;
+}

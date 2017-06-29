@@ -1,0 +1,142 @@
+.port-top {
+  //border: 1px solid #b0b0b0;
+  margin: 10px;
+  background: #feffff;
+  color: #555;
+  border-bottom: 1px solid #f2f6fd;
+  p {
+    font-size: 15px;
+    padding: 10px 0;
+    border-bottom: 1px solid #b0b0b0;
+  }
+  p span {
+    border-left: 3px solid #45a12e;
+    padding-left: 10px;
+    display: inline-block;
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  ul {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
+    padding: 1em;
+    width: 90%;
+    list-style-type: none;
+    max-width: 1050px;
+  }
+  ul li {
+    float: left;
+    width: 33%;
+    max-width: 350px;
+  }
+  li label {
+    padding-right: 5px;
+    float: left;
+    line-height: 26px;
+  }
+  li input {
+    outline: none;
+    box-sizing: border-box;
+    padding: 4px 6px;
+    font-size: 1em;
+    line-height: 1.25;
+    color: #464a4c;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    vertical-align: middle;
+    border-radius: 2px;
+    background: #f6f6f6;
+    width: 100%;
+  }
+}
+
+.input-common {
+  width: 100%;
+  outline: none;
+  box-sizing: border-box;
+  padding: 4px 6px;
+  font-size: 1em;
+  line-height: 1.25;
+  color: #464a4c;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  vertical-align: middle;
+  border-radius: 2px;
+  background: #f6f6f6;
+}
+
+.form-control {
+  @extend .input-common
+}
+
+.sousuo {
+  color: #fff;
+  padding: .4em 1em;
+  background: #3794ff;
+  display: inline-block;
+  vertical-align: middle;
+  border: none;
+  outline: none;
+  border-radius: 2px;
+  font-size: 1em;
+  path{
+    fill: #fff;
+  }
+}
+
+.port-list {
+  margin: 10px;
+  background: #feffff;
+  color: #7e7f7f;
+  p {
+    font-size: 15px;
+    padding: 10px 0;
+    margin: 0;
+    border-bottom: 0;
+  }
+  p span {
+    border-left: 3px solid #45a12e;
+    padding-left: 10px;
+    display: inline-block;
+    font-weight: bold;
+  }
+  .table {
+    margin-bottom: 0;
+  }
+}
+
+.page-box {
+  padding: 25px 12px 50px 12px;
+  width: 100%;
+  text-align: center;
+}
+
+.page-box .page {
+  border-width: 1px 1px 1px 1px;
+  margin: 0 5px;
+}
+
+.deal-btn {
+  border: 0;
+  background: #ddd;
+  border-radius: 2px;
+  outline: 0;
+  padding: 4px 6px;
+}
+
+.opr-btn {
+  border: 1px solid #ddd;
+  background: #eee;
+  border-radius: 4px;
+  outline: 0;
+  padding: 2px 6px;
+  margin-right: 12px;
+}
+
+.alarm-page .rc-select-container ul li{
+  padding: 3px;
+}
+
+.alarm-page .rc-select-container ul{
+  max-height: 200px;
+  overflow: auto;
+}
